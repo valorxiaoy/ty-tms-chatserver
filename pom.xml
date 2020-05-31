@@ -36,6 +36,12 @@
 
         <dependency>
             <groupId>io.vertx</groupId>
+            <artifactId>vertx-auth-jwt</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
             <artifactId>vertx-redis-client</artifactId>
             <version>3.9.1</version>
         </dependency>

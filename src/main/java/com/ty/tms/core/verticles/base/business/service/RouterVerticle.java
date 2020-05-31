@@ -1,7 +1,8 @@
-package com.ty.tms.core.verticles.base;
+package com.ty.tms.core.verticles.base.business.service;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
+import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpClientOptions;
 import io.vertx.core.http.HttpMethod;
@@ -15,13 +16,19 @@ import java.util.List;
 /**
  * Verticle 基类
  */
-public abstract class RouterVerticle extends AbstractVerticle {
+public class RouterVerticle extends AbstractVerticle {
 
-    protected String ROUTE_PATH;
+    private static Vertx vertx = Vertx.vertx();
 
-    protected Handler<RoutingContext> handler;
+    private static Router router = Router.router(vertx);
 
-    public abstract void intiRouterVerticle();
+    public static EventBus getEventBus() {
+        return vertx.eventBus();
+    }
+
+    public static void addRoute(String routePath, Handler<RoutingContext> handler) {
+        router.route(HttpMethod.POST, routePath).handler(handler);
+    }
 
     @Override
     public void start() {
@@ -31,12 +38,7 @@ public abstract class RouterVerticle extends AbstractVerticle {
             httpClientOptions.setReceiveBufferSize(1024000);
             httpClientOptions.setSendBufferSize(1024000);
             HttpServer server = vertx.createHttpServer();
-            intiRouterVerticle();
-            Router router = Router.router(vertx);
-            Route route = router.route(HttpMethod.POST, ROUTE_PATH);
-            route.handler(handler);
-
-            server.requestHandler(router::accept);
+            server.requestHandler(router);
             server.listen(8088);
 
             List<Route> routes = router.getRoutes();

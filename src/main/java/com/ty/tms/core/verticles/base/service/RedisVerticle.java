@@ -1,4 +1,4 @@
-package com.ty.tms.core.verticles.base;
+package com.ty.tms.core.verticles.base.service;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.redis.client.Redis;
@@ -11,7 +11,7 @@ import io.vertx.redis.client.RedisOptions;
  */
 public class RedisVerticle extends AbstractVerticle {
 
-    private static RedisOptions redisOptions = null;
+    private static RedisOptions redisOptions;
 
     private static RedisAPI redisAPI = null;
 
@@ -30,6 +30,7 @@ public class RedisVerticle extends AbstractVerticle {
             if (onConnect.succeeded()) {
                 RedisConnection client = onConnect.result();
                 redisAPI = RedisAPI.api(client);
+                System.out.println("Redis register succeeded!");
             }
         });
     }

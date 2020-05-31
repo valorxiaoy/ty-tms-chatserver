@@ -1,5 +1,6 @@
 package com.ty.tms.core.verticles.business;
 
+import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
 
@@ -10,7 +11,7 @@ public class ConsumerVerticle extends AbstractVerticle {
     @Override
     public void start() {
         try {
-            EventBus eventBus = vertx.eventBus();
+            EventBus eventBus = RouterVerticle.getEventBus();
             eventBus.consumer("key.requestId.Point.message", message -> {
                 System.out.println(message.address());
                 System.out.println(message.body());
