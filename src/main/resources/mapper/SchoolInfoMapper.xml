@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tms.core.mapper.SchoolInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ty.tms.core.bean.po.SchoolInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="abbr" jdbcType="VARCHAR" property="abbr" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="region_id" jdbcType="VARCHAR" property="regionId" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="web_logo" jdbcType="VARCHAR" property="webLogo" />
+    <result column="app_logo" jdbcType="VARCHAR" property="appLogo" />
+    <result column="vaild_pic" jdbcType="VARCHAR" property="vaildPic" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="zip" jdbcType="VARCHAR" property="zip" />
+    <result column="build_date" jdbcType="TIMESTAMP" property="buildDate" />
+    <result column="web" jdbcType="VARCHAR" property="web" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="really" jdbcType="INTEGER" property="really" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_uid" jdbcType="INTEGER" property="createUid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, abbr, code, type, region_id, region, address, web_logo, app_logo, vaild_pic, 
+    summary, phone, fax, zip, build_date, web, contact, mobile, really, remark, create_uid, 
+    create_time, update_uid, update_time, del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from school_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="findAll" parameterType="com.ty.tms.core.bean.po.SchoolInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from school_info
+    where 1=1
+    <if test="id != null">
+      and id = #{id, jdbcType=INTEGER}
+    </if>
+    <if test="code != null">
+      and code = #{code, jdbcType=INTEGER}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from school_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ty.tms.core.bean.po.SchoolInfo">
+    insert into school_info (id, name, abbr, 
+      code, type, region_id, 
+      region, address, web_logo, 
+      app_logo, vaild_pic, summary, 
+      phone, fax, zip, build_date, 
+      web, contact, mobile, 
+      really, remark, create_uid, 
+      create_time, update_uid, update_time, 
+      del)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{abbr,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{regionId,jdbcType=VARCHAR}, 
+      #{region,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{webLogo,jdbcType=VARCHAR}, 
+      #{appLogo,jdbcType=VARCHAR}, #{vaildPic,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, #{buildDate,jdbcType=TIMESTAMP}, 
+      #{web,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{really,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createUid,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{del,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ty.tms.core.bean.po.SchoolInfo">
+    insert into school_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="abbr != null">
+        abbr,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="regionId != null">
+        region_id,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="webLogo != null">
+        web_logo,
+      </if>
+      <if test="appLogo != null">
+        app_logo,
+      </if>
+      <if test="vaildPic != null">
+        vaild_pic,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="fax != null">
+        fax,
+      </if>
+      <if test="zip != null">
+        zip,
+      </if>
+      <if test="buildDate != null">
+        build_date,
+      </if>
+      <if test="web != null">
+        web,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="really != null">
+        really,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createUid != null">
+        create_uid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUid != null">
+        update_uid,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="webLogo != null">
+        #{webLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="appLogo != null">
+        #{appLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="vaildPic != null">
+        #{vaildPic,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null">
+        #{buildDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="web != null">
+        #{web,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="really != null">
+        #{really,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ty.tms.core.bean.po.SchoolInfo">
+    update school_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        abbr = #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        region_id = #{regionId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="webLogo != null">
+        web_logo = #{webLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="appLogo != null">
+        app_logo = #{appLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="vaildPic != null">
+        vaild_pic = #{vaildPic,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        zip = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null">
+        build_date = #{buildDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="web != null">
+        web = #{web,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="really != null">
+        really = #{really,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        create_uid = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        update_uid = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ty.tms.core.bean.po.SchoolInfo">
+    update school_info
+    set name = #{name,jdbcType=VARCHAR},
+      abbr = #{abbr,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      region_id = #{regionId,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      web_logo = #{webLogo,jdbcType=VARCHAR},
+      app_logo = #{appLogo,jdbcType=VARCHAR},
+      vaild_pic = #{vaildPic,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      zip = #{zip,jdbcType=VARCHAR},
+      build_date = #{buildDate,jdbcType=TIMESTAMP},
+      web = #{web,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      really = #{really,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_uid = #{createUid,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_uid = #{updateUid,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del = #{del,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

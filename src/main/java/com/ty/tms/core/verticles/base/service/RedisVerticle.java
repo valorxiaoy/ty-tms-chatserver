@@ -5,11 +5,14 @@ import io.vertx.redis.client.Redis;
 import io.vertx.redis.client.RedisAPI;
 import io.vertx.redis.client.RedisConnection;
 import io.vertx.redis.client.RedisOptions;
+import org.apache.log4j.Logger;
 
 /**
  * Redis服务
  */
 public class RedisVerticle extends AbstractVerticle {
+
+    private static Logger logger = Logger.getLogger(RedisVerticle.class);
 
     private static RedisOptions redisOptions;
 
@@ -17,7 +20,8 @@ public class RedisVerticle extends AbstractVerticle {
 
     static {
         redisOptions = new RedisOptions();
-        redisOptions.setConnectionString("redis://:303772@122.114.21.155:6379/15");
+        // redisOptions.setConnectionString("redis://:303772@122.114.21.155:6379/15");
+        redisOptions.setConnectionString("redis://:123123@127.0.0.1:6379/15");
     }
 
     public static RedisAPI getRedisAPI() {
@@ -26,11 +30,14 @@ public class RedisVerticle extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
-        Redis.createClient(vertx, redisOptions).connect(onConnect -> {
+        Redis redis = Redis.createClient(vertx, redisOptions);
+        redis.connect(onConnect -> {
             if (onConnect.succeeded()) {
                 RedisConnection client = onConnect.result();
                 redisAPI = RedisAPI.api(client);
-                System.out.println("Redis register succeeded!");
+                logger.info("Redis connect succeeded!");
+            } else {
+                logger.error("Redis connect fail!");
             }
         });
     }

@@ -7,7 +7,9 @@ import io.vertx.core.eventbus.EventBus;
 /**
  * 消费者
  */
-public class ConsumerVerticle extends AbstractVerticle {
+@Deprecated
+public class ConsumerVerticle extends RouterVerticle {
+
     @Override
     public void start() {
         try {

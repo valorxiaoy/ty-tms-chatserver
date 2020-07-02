@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- 引用db.properties配置文件 -->
+    <properties resource="config/dbConfig.properties" />
+
+    <settings>
+        <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。默认：true  -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- sql 打印到控制台 -->
+        <!-- <setting name="logImpl" value="STDOUT_LOGGING"/> -->
+        <!-- mybatis sql打印到log4j文件-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!-- 关闭二级缓存，默认是关闭-->
+        <setting name="cacheEnabled" value="false"/>
+    </settings>
+
+    <!-- 引用分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
+    <!-- development : 开发模式 work : 工作模式 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 配置数据库连接信息 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="com.ty.tms.core.config.mybaits.MyselfDefineDataSourceFactory">
+                <!--<property name="driver" value="com.mysql.jdbc.Driver}"/>-->
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mybatis的mapper文件，每个xml配置文件对应一个接口 -->
+    <mappers>
+        <mapper resource="mapper/AccountInfoMapper.xml" />
+        <mapper resource="mapper/GroupInfoMapper.xml" />
+        <mapper resource="mapper/GuardionInfoMapper.xml" />
+        <mapper resource="mapper/LimitsMapper.xml" />
+        <mapper resource="mapper/LoginLogMapper.xml" />
+        <mapper resource="mapper/SchoolInfoMapper.xml" />
+        <mapper resource="mapper/SchoolLimitsMapper.xml" />
+        <mapper resource="mapper/SchoolStudentMapper.xml" />
+        <mapper resource="mapper/SchoolTeacherMapper.xml" />
+        <mapper resource="mapper/StudentGuardionMapper.xml" />
+        <mapper resource="mapper/TeacherInfoMapper.xml" />
+        <mapper resource="mapper/UserBuddyMapper.xml" />
+        <mapper resource="mapper/UserGroupMapper.xml" />
+    </mappers>
+
+</configuration>
