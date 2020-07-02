@@ -1,7 +1,6 @@
 package com.ty.tms.core.mapper;
 
 import com.ty.tms.core.bean.po.SchoolInfo;
-import com.ty.tms.core.bean.po.TeacherInfo;
 
 import java.util.List;
 

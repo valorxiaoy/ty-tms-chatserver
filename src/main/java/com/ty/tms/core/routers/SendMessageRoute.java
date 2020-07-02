@@ -2,7 +2,7 @@ package com.ty.tms.core.routers;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ty.tms.core.tools.MessageToken;
-import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
+import com.ty.tms.core.verticles.VertxApplication;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpServerRequest;
@@ -10,7 +10,7 @@ import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 
 @Deprecated
-public class SendMessageRoute extends RouterVerticle {
+public class SendMessageRoute extends VertxApplication {
 
     @Deprecated
     public static void trigger() {
@@ -52,6 +52,6 @@ public class SendMessageRoute extends RouterVerticle {
                 response.end("信息发送成功");
             }
         };
-        RouterVerticle.addRoutePost(routePath, handler);
+        VertxApplication.addRoutePost(routePath, handler);
     }
 }

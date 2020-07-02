@@ -3,24 +3,24 @@ package com.ty.tms.core.bean.po;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserBuddy implements Serializable {
+public class FriendRequests implements Serializable {
     private Integer id;
 
-    private Integer userId;
+    private Integer uid;
 
-    private String noteName;
+    private Integer fid;
 
-    private Integer buddyId;
+    private String text;
 
     private String remark;
-
-    private Date updateTime;
 
     private Integer createUid;
 
     private Date createTime;
 
     private Integer updateUid;
+
+    private Date updateTime;
 
     private Integer del;
 
@@ -34,28 +34,28 @@ public class UserBuddy implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public String getNoteName() {
-        return noteName;
+    public Integer getFid() {
+        return fid;
     }
 
-    public void setNoteName(String noteName) {
-        this.noteName = noteName == null ? null : noteName.trim();
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 
-    public Integer getBuddyId() {
-        return buddyId;
+    public String getText() {
+        return text;
     }
 
-    public void setBuddyId(Integer buddyId) {
-        this.buddyId = buddyId;
+    public void setText(String text) {
+        this.text = text == null ? null : text.trim();
     }
 
     public String getRemark() {
@@ -64,14 +64,6 @@ public class UserBuddy implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public Integer getCreateUid() {
@@ -96,6 +88,14 @@ public class UserBuddy implements Serializable {
 
     public void setUpdateUid(Integer updateUid) {
         this.updateUid = updateUid;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Integer getDel() {

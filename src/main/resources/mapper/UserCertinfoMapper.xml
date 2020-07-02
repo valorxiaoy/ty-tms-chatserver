@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ty.tms.core.mapper.UserBuddyMapper">
-  <resultMap id="BaseResultMap" type="com.ty.tms.core.bean.po.UserBuddy">
+<mapper namespace="com.ty.tms.core.mapper.UserCertinfoMapper">
+  <resultMap id="BaseResultMap" type="com.ty.tms.core.bean.po.UserCertinfo">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="note_name" jdbcType="VARCHAR" property="noteName" />
-    <result column="buddy_id" jdbcType="INTEGER" property="buddyId" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="certurl" jdbcType="VARCHAR" property="certurl" />
+    <result column="really" jdbcType="INTEGER" property="really" />
+    <result column="attest_type" jdbcType="INTEGER" property="attestType" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="create_uid" jdbcType="INTEGER" property="createUid" />
@@ -14,52 +15,46 @@
     <result column="del" jdbcType="INTEGER" property="del" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, note_name, buddy_id, remark, update_time, create_uid, create_time, update_uid, 
-    del
+    id, uid, certurl, really, attest_type, remark, update_time, create_uid, create_time, 
+    update_uid, del
   </sql>
-  <select id="searchUserBuddyByUserId" parameterType="com.ty.tms.core.bean.po.UserBuddy" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from user_buddy
-    where 1=1
-    <if test="userId != null">
-      and user_id = #{userId, jdbcType=VARCHAR}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_buddy
+    from user_certinfo
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user_buddy
+    delete from user_certinfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ty.tms.core.bean.po.UserBuddy">
-    insert into user_buddy (id, user_id, note_name, 
-      buddy_id, remark, update_time, 
-      create_uid, create_time, update_uid, 
-      del)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{noteName,jdbcType=VARCHAR}, 
-      #{buddyId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{createUid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER}, 
-      #{del,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.ty.tms.core.bean.po.UserCertinfo">
+    insert into user_certinfo (id, uid, certurl, 
+      really, attest_type, remark, 
+      update_time, create_uid, create_time, 
+      update_uid, del)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{certurl,jdbcType=VARCHAR}, 
+      #{really,jdbcType=INTEGER}, #{attestType,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createUid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUid,jdbcType=INTEGER}, #{del,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.ty.tms.core.bean.po.UserBuddy">
-    insert into user_buddy
+  <insert id="insertSelective" parameterType="com.ty.tms.core.bean.po.UserCertinfo">
+    insert into user_certinfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="userId != null">
-        user_id,
+      <if test="uid != null">
+        uid,
       </if>
-      <if test="noteName != null">
-        note_name,
+      <if test="certurl != null">
+        certurl,
       </if>
-      <if test="buddyId != null">
-        buddy_id,
+      <if test="really != null">
+        really,
+      </if>
+      <if test="attestType != null">
+        attest_type,
       </if>
       <if test="remark != null">
         remark,
@@ -84,14 +79,17 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
-      <if test="noteName != null">
-        #{noteName,jdbcType=VARCHAR},
+      <if test="certurl != null">
+        #{certurl,jdbcType=VARCHAR},
       </if>
-      <if test="buddyId != null">
-        #{buddyId,jdbcType=INTEGER},
+      <if test="really != null">
+        #{really,jdbcType=INTEGER},
+      </if>
+      <if test="attestType != null">
+        #{attestType,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
@@ -113,17 +111,20 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ty.tms.core.bean.po.UserBuddy">
-    update user_buddy
+  <update id="updateByPrimaryKeySelective" parameterType="com.ty.tms.core.bean.po.UserCertinfo">
+    update user_certinfo
     <set>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
       </if>
-      <if test="noteName != null">
-        note_name = #{noteName,jdbcType=VARCHAR},
+      <if test="certurl != null">
+        certurl = #{certurl,jdbcType=VARCHAR},
       </if>
-      <if test="buddyId != null">
-        buddy_id = #{buddyId,jdbcType=INTEGER},
+      <if test="really != null">
+        really = #{really,jdbcType=INTEGER},
+      </if>
+      <if test="attestType != null">
+        attest_type = #{attestType,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -146,11 +147,12 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ty.tms.core.bean.po.UserBuddy">
-    update user_buddy
-    set user_id = #{userId,jdbcType=INTEGER},
-      note_name = #{noteName,jdbcType=VARCHAR},
-      buddy_id = #{buddyId,jdbcType=INTEGER},
+  <update id="updateByPrimaryKey" parameterType="com.ty.tms.core.bean.po.UserCertinfo">
+    update user_certinfo
+    set uid = #{uid,jdbcType=INTEGER},
+      certurl = #{certurl,jdbcType=VARCHAR},
+      really = #{really,jdbcType=INTEGER},
+      attest_type = #{attestType,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_uid = #{createUid,jdbcType=INTEGER},

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tms.core.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ty.tms.core.bean.po.UserInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="school_code" jdbcType="INTEGER" property="schoolCode" />
+    <result column="business_code" jdbcType="INTEGER" property="businessCode" />
+    <result column="qihang_code" jdbcType="INTEGER" property="qihangCode" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
+    <result column="idnumber" jdbcType="VARCHAR" property="idnumber" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="political" jdbcType="VARCHAR" property="political" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="wechant" jdbcType="VARCHAR" property="wechant" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="emile" jdbcType="VARCHAR" property="emile" />
+    <result column="job_date" jdbcType="TIMESTAMP" property="jobDate" />
+    <result column="region_id" jdbcType="VARCHAR" property="regionId" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="id_face" jdbcType="VARCHAR" property="idFace" />
+    <result column="id_back" jdbcType="VARCHAR" property="idBack" />
+    <result column="really" jdbcType="INTEGER" property="really" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_uid" jdbcType="INTEGER" property="createUid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_type, user_status, school_code, business_code, qihang_code, nickname, name, 
+    gender, birth, idnumber, nation, political, mobile, phone, wechant, qq, emile, job_date, 
+    region_id, region, address, avatar, id_face, id_back, really, remark, create_uid, 
+    create_time, update_uid, update_time, del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ty.tms.core.bean.po.UserInfo">
+    insert into user_info (id, user_type, user_status, 
+      school_code, business_code, qihang_code, 
+      nickname, name, gender, 
+      birth, idnumber, nation, 
+      political, mobile, phone, 
+      wechant, qq, emile, 
+      job_date, region_id, region, 
+      address, avatar, id_face, 
+      id_back, really, remark, 
+      create_uid, create_time, update_uid, 
+      update_time, del)
+    values (#{id,jdbcType=INTEGER}, #{userType,jdbcType=INTEGER}, #{userStatus,jdbcType=INTEGER}, 
+      #{schoolCode,jdbcType=INTEGER}, #{businessCode,jdbcType=INTEGER}, #{qihangCode,jdbcType=INTEGER}, 
+      #{nickname,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{birth,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, 
+      #{political,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{wechant,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{emile,jdbcType=VARCHAR}, 
+      #{jobDate,jdbcType=TIMESTAMP}, #{regionId,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{idFace,jdbcType=VARCHAR}, 
+      #{idBack,jdbcType=VARCHAR}, #{really,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{createUid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{del,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ty.tms.core.bean.po.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="schoolCode != null">
+        school_code,
+      </if>
+      <if test="businessCode != null">
+        business_code,
+      </if>
+      <if test="qihangCode != null">
+        qihang_code,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birth != null">
+        birth,
+      </if>
+      <if test="idnumber != null">
+        idnumber,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="political != null">
+        political,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="wechant != null">
+        wechant,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="emile != null">
+        emile,
+      </if>
+      <if test="jobDate != null">
+        job_date,
+      </if>
+      <if test="regionId != null">
+        region_id,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="idFace != null">
+        id_face,
+      </if>
+      <if test="idBack != null">
+        id_back,
+      </if>
+      <if test="really != null">
+        really,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createUid != null">
+        create_uid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUid != null">
+        update_uid,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="schoolCode != null">
+        #{schoolCode,jdbcType=INTEGER},
+      </if>
+      <if test="businessCode != null">
+        #{businessCode,jdbcType=INTEGER},
+      </if>
+      <if test="qihangCode != null">
+        #{qihangCode,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wechant != null">
+        #{wechant,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="emile != null">
+        #{emile,jdbcType=VARCHAR},
+      </if>
+      <if test="jobDate != null">
+        #{jobDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="idFace != null">
+        #{idFace,jdbcType=VARCHAR},
+      </if>
+      <if test="idBack != null">
+        #{idBack,jdbcType=VARCHAR},
+      </if>
+      <if test="really != null">
+        #{really,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ty.tms.core.bean.po.UserInfo">
+    update user_info
+    <set>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="schoolCode != null">
+        school_code = #{schoolCode,jdbcType=INTEGER},
+      </if>
+      <if test="businessCode != null">
+        business_code = #{businessCode,jdbcType=INTEGER},
+      </if>
+      <if test="qihangCode != null">
+        qihang_code = #{qihangCode,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        idnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wechant != null">
+        wechant = #{wechant,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="emile != null">
+        emile = #{emile,jdbcType=VARCHAR},
+      </if>
+      <if test="jobDate != null">
+        job_date = #{jobDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regionId != null">
+        region_id = #{regionId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="idFace != null">
+        id_face = #{idFace,jdbcType=VARCHAR},
+      </if>
+      <if test="idBack != null">
+        id_back = #{idBack,jdbcType=VARCHAR},
+      </if>
+      <if test="really != null">
+        really = #{really,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        create_uid = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        update_uid = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ty.tms.core.bean.po.UserInfo">
+    update user_info
+    set user_type = #{userType,jdbcType=INTEGER},
+      user_status = #{userStatus,jdbcType=INTEGER},
+      school_code = #{schoolCode,jdbcType=INTEGER},
+      business_code = #{businessCode,jdbcType=INTEGER},
+      qihang_code = #{qihangCode,jdbcType=INTEGER},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      birth = #{birth,jdbcType=VARCHAR},
+      idnumber = #{idnumber,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      political = #{political,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      wechant = #{wechant,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      emile = #{emile,jdbcType=VARCHAR},
+      job_date = #{jobDate,jdbcType=TIMESTAMP},
+      region_id = #{regionId,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      id_face = #{idFace,jdbcType=VARCHAR},
+      id_back = #{idBack,jdbcType=VARCHAR},
+      really = #{really,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_uid = #{createUid,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_uid = #{updateUid,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del = #{del,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

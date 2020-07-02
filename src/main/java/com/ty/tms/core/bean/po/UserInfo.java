@@ -3,36 +3,44 @@ package com.ty.tms.core.bean.po;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SchoolStudent implements Serializable {
+public class UserInfo implements Serializable {
     private Integer id;
 
-    private Integer schoolId;
+    private Integer userType;
 
-    private Integer gradeId;
+    private Integer userStatus;
 
-    private Integer classId;
+    private Integer schoolCode;
 
-    private String wtwatchId;
+    private Integer businessCode;
 
-    private String nick;
+    private Integer qihangCode;
+
+    private String nickname;
 
     private String name;
 
-    private String code;
-
-    private String gender;
+    private Integer gender;
 
     private String birth;
 
-    private String idNumber;
+    private String idnumber;
 
-    private String ethnic;
+    private String nation;
 
     private String political;
 
     private String mobile;
 
-    private Date jobTime;
+    private String phone;
+
+    private String wechant;
+
+    private String qq;
+
+    private String emile;
+
+    private Date jobDate;
 
     private String regionId;
 
@@ -40,27 +48,23 @@ public class SchoolStudent implements Serializable {
 
     private String address;
 
-    private String avator;
+    private String avatar;
 
     private String idFace;
 
     private String idBack;
 
-    private String idCode;
-
     private Integer really;
 
-    private Integer enable;
-
     private String remark;
-
-    private Date updateTime;
 
     private Integer createUid;
 
     private Date createTime;
 
     private Integer updateUid;
+
+    private Date updateTime;
 
     private Integer del;
 
@@ -74,44 +78,52 @@ public class SchoolStudent implements Serializable {
         this.id = id;
     }
 
-    public Integer getSchoolId() {
-        return schoolId;
+    public Integer getUserType() {
+        return userType;
     }
 
-    public void setSchoolId(Integer schoolId) {
-        this.schoolId = schoolId;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
-    public Integer getGradeId() {
-        return gradeId;
+    public Integer getUserStatus() {
+        return userStatus;
     }
 
-    public void setGradeId(Integer gradeId) {
-        this.gradeId = gradeId;
+    public void setUserStatus(Integer userStatus) {
+        this.userStatus = userStatus;
     }
 
-    public Integer getClassId() {
-        return classId;
+    public Integer getSchoolCode() {
+        return schoolCode;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setSchoolCode(Integer schoolCode) {
+        this.schoolCode = schoolCode;
     }
 
-    public String getWtwatchId() {
-        return wtwatchId;
+    public Integer getBusinessCode() {
+        return businessCode;
     }
 
-    public void setWtwatchId(String wtwatchId) {
-        this.wtwatchId = wtwatchId == null ? null : wtwatchId.trim();
+    public void setBusinessCode(Integer businessCode) {
+        this.businessCode = businessCode;
     }
 
-    public String getNick() {
-        return nick;
+    public Integer getQihangCode() {
+        return qihangCode;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick == null ? null : nick.trim();
+    public void setQihangCode(Integer qihangCode) {
+        this.qihangCode = qihangCode;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
     }
 
     public String getName() {
@@ -122,20 +134,12 @@ public class SchoolStudent implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
     public String getBirth() {
@@ -146,20 +150,20 @@ public class SchoolStudent implements Serializable {
         this.birth = birth == null ? null : birth.trim();
     }
 
-    public String getIdNumber() {
-        return idNumber;
+    public String getIdnumber() {
+        return idnumber;
     }
 
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber == null ? null : idNumber.trim();
+    public void setIdnumber(String idnumber) {
+        this.idnumber = idnumber == null ? null : idnumber.trim();
     }
 
-    public String getEthnic() {
-        return ethnic;
+    public String getNation() {
+        return nation;
     }
 
-    public void setEthnic(String ethnic) {
-        this.ethnic = ethnic == null ? null : ethnic.trim();
+    public void setNation(String nation) {
+        this.nation = nation == null ? null : nation.trim();
     }
 
     public String getPolitical() {
@@ -178,12 +182,44 @@ public class SchoolStudent implements Serializable {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public Date getJobTime() {
-        return jobTime;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setJobTime(Date jobTime) {
-        this.jobTime = jobTime;
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getWechant() {
+        return wechant;
+    }
+
+    public void setWechant(String wechant) {
+        this.wechant = wechant == null ? null : wechant.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getEmile() {
+        return emile;
+    }
+
+    public void setEmile(String emile) {
+        this.emile = emile == null ? null : emile.trim();
+    }
+
+    public Date getJobDate() {
+        return jobDate;
+    }
+
+    public void setJobDate(Date jobDate) {
+        this.jobDate = jobDate;
     }
 
     public String getRegionId() {
@@ -210,12 +246,12 @@ public class SchoolStudent implements Serializable {
         this.address = address == null ? null : address.trim();
     }
 
-    public String getAvator() {
-        return avator;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvator(String avator) {
-        this.avator = avator == null ? null : avator.trim();
+    public void setAvatar(String avatar) {
+        this.avatar = avatar == null ? null : avatar.trim();
     }
 
     public String getIdFace() {
@@ -234,14 +270,6 @@ public class SchoolStudent implements Serializable {
         this.idBack = idBack == null ? null : idBack.trim();
     }
 
-    public String getIdCode() {
-        return idCode;
-    }
-
-    public void setIdCode(String idCode) {
-        this.idCode = idCode == null ? null : idCode.trim();
-    }
-
     public Integer getReally() {
         return really;
     }
@@ -250,28 +278,12 @@ public class SchoolStudent implements Serializable {
         this.really = really;
     }
 
-    public Integer getEnable() {
-        return enable;
-    }
-
-    public void setEnable(Integer enable) {
-        this.enable = enable;
-    }
-
     public String getRemark() {
         return remark;
     }
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public Integer getCreateUid() {
@@ -296,6 +308,14 @@ public class SchoolStudent implements Serializable {
 
     public void setUpdateUid(Integer updateUid) {
         this.updateUid = updateUid;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Integer getDel() {

@@ -2,6 +2,8 @@ package com.ty.tms.core.mapper;
 
 import com.ty.tms.core.bean.po.UserBuddy;
 
+import java.util.List;
+
 public interface UserBuddyMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,6 +12,8 @@ public interface UserBuddyMapper {
     int insertSelective(UserBuddy record);
 
     UserBuddy selectByPrimaryKey(Integer id);
+
+    List<UserBuddy> searchUserBuddyByUserId(UserBuddy record);
 
     int updateByPrimaryKeySelective(UserBuddy record);
 

@@ -1,3 +1,4 @@
+/*
 package com.ty.tms.core.routers;
 
 import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
@@ -15,3 +16,4 @@ public class FriendRoute extends RouterVerticle {
         // 4. 添加好友关系
     }
 }
+*/

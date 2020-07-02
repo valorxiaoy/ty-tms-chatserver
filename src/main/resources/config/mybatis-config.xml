@@ -45,15 +45,12 @@
     <mappers>
         <mapper resource="mapper/AccountInfoMapper.xml" />
         <mapper resource="mapper/GroupInfoMapper.xml" />
-        <mapper resource="mapper/GuardionInfoMapper.xml" />
         <mapper resource="mapper/LimitsMapper.xml" />
         <mapper resource="mapper/LoginLogMapper.xml" />
         <mapper resource="mapper/SchoolInfoMapper.xml" />
         <mapper resource="mapper/SchoolLimitsMapper.xml" />
-        <mapper resource="mapper/SchoolStudentMapper.xml" />
         <mapper resource="mapper/SchoolTeacherMapper.xml" />
         <mapper resource="mapper/StudentGuardionMapper.xml" />
-        <mapper resource="mapper/TeacherInfoMapper.xml" />
         <mapper resource="mapper/UserBuddyMapper.xml" />
         <mapper resource="mapper/UserGroupMapper.xml" />
     </mappers>

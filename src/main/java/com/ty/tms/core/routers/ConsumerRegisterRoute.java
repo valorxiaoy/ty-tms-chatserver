@@ -2,8 +2,8 @@ package com.ty.tms.core.routers;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ty.tms.core.tools.MessageToken;
-import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
-import com.ty.tms.core.verticles.base.service.RedisVerticle;
+import com.ty.tms.core.verticles.VertxApplication;
+import com.ty.tms.core.verticles.business.RedisVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.MessageConsumer;
@@ -16,7 +16,7 @@ import io.vertx.redis.client.RedisAPI;
  * 消费者信息注册
  */
 @Deprecated
-public class ConsumerRegisterRoute extends RouterVerticle {
+public class ConsumerRegisterRoute extends VertxApplication {
 
     @Deprecated
     public static void trigger() {
@@ -45,7 +45,7 @@ public class ConsumerRegisterRoute extends RouterVerticle {
         };
 
         // 注册服务
-        RouterVerticle.addRoutePost(routePath, handler);
+        VertxApplication.addRoutePost(routePath, handler);
     }
 
     @Deprecated
@@ -97,6 +97,6 @@ public class ConsumerRegisterRoute extends RouterVerticle {
         };
 
         // 注册服务
-        RouterVerticle.addRoutePost(routePaht, handler);
+        VertxApplication.addRoutePost(routePaht, handler);
     }
 }

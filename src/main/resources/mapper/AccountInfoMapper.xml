@@ -19,12 +19,6 @@
     id, user_id, user_name, pass_word, account_id, login_id, remark, update_time, create_uid, 
     create_time, update_uid, del
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from account_info
-    where id = #{id,jdbcType=INTEGER}
-  </select>
   <select id="findAll" parameterType="com.ty.tms.core.bean.po.AccountInfo" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -33,6 +27,12 @@
     <if test="id != null">
       and id = #{id,jdbcType=INTEGER}
     </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_info
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from account_info

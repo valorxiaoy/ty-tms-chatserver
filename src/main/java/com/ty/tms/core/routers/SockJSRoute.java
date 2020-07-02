@@ -1,11 +1,11 @@
 package com.ty.tms.core.routers;
 
-import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
+import com.ty.tms.core.verticles.VertxApplication;
 import io.vertx.ext.bridge.PermittedOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSBridgeOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSHandler;
 
-public class SockJSRoute extends RouterVerticle {
+public class SockJSRoute extends VertxApplication {
 
     public static void trigger() {
         String routePath = "/eventbus/*";
@@ -28,7 +28,7 @@ public class SockJSRoute extends RouterVerticle {
             // eventBus.request("");
         }*/);
 
-        RouterVerticle.addRouteGet(routePath, sockJSHandler);
+        VertxApplication.addRouteGet(routePath, sockJSHandler);
 
     }
 }

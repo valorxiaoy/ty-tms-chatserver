@@ -34,12 +34,6 @@
     summary, phone, fax, zip, build_date, web, contact, mobile, really, remark, create_uid, 
     create_time, update_uid, update_time, del
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from school_info
-    where id = #{id,jdbcType=INTEGER}
-  </select>
   <select id="findAll" parameterType="com.ty.tms.core.bean.po.SchoolInfo" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -51,6 +45,12 @@
     <if test="code != null">
       and code = #{code, jdbcType=INTEGER}
     </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from school_info
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from school_info

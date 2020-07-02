@@ -1,19 +1,18 @@
 package com.ty.tms.core.verticles.business;
 
-import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
-import io.vertx.core.AbstractVerticle;
+import com.ty.tms.core.verticles.VertxApplication;
 import io.vertx.core.eventbus.EventBus;
 
 /**
  * 消费者
  */
 @Deprecated
-public class ConsumerVerticle extends RouterVerticle {
+public class ConsumerVerticle extends VertxApplication {
 
     @Override
     public void start() {
         try {
-            EventBus eventBus = RouterVerticle.getEventBus();
+            EventBus eventBus = VertxApplication.getEventBus();
             eventBus.consumer("key.requestId.Point.message", message -> {
                 System.out.println(message.address());
                 System.out.println(message.body());

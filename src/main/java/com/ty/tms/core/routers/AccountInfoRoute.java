@@ -8,8 +8,8 @@ import com.ty.tms.core.bean.ResponseBody;
 import com.ty.tms.core.bean.po.AccountInfo;
 import com.ty.tms.core.service.AccountInfoService;
 import com.ty.tms.core.tools.ResponseCode;
-import com.ty.tms.core.verticles.base.business.service.RouterVerticle;
-import com.ty.tms.core.verticles.base.service.RedisVerticle;
+import com.ty.tms.core.verticles.VertxApplication;
+import com.ty.tms.core.verticles.business.RedisVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -20,9 +20,9 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-public class AccountInfoRoute extends RouterVerticle {
+public class AccountInfoRoute extends VertxApplication {
 
-    private static Logger logger = Logger.getLogger(TeacherInfoRoute.class);
+    private static Logger logger = Logger.getLogger(AccountInfoRoute.class);
 
     private static AccountInfoService accountInfoService = new AccountInfoService();
 
@@ -114,7 +114,7 @@ public class AccountInfoRoute extends RouterVerticle {
         };
 
         // 注册服务
-        RouterVerticle.addRoutePost(routePath, handler);
+        VertxApplication.addRoutePost(routePath, handler);
     }
 
     @Deprecated
@@ -146,6 +146,6 @@ public class AccountInfoRoute extends RouterVerticle {
         };
 
         // 注册服务
-        RouterVerticle.addRoutePost(routePath, handler);
+        VertxApplication.addRoutePost(routePath, handler);
     }
 }

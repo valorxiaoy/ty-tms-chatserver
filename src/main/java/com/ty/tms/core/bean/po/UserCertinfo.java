@@ -3,14 +3,16 @@ package com.ty.tms.core.bean.po;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserBuddy implements Serializable {
+public class UserCertinfo implements Serializable {
     private Integer id;
 
-    private Integer userId;
+    private Integer uid;
 
-    private String noteName;
+    private String certurl;
 
-    private Integer buddyId;
+    private Integer really;
+
+    private Integer attestType;
 
     private String remark;
 
@@ -34,28 +36,36 @@ public class UserBuddy implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public String getNoteName() {
-        return noteName;
+    public String getCerturl() {
+        return certurl;
     }
 
-    public void setNoteName(String noteName) {
-        this.noteName = noteName == null ? null : noteName.trim();
+    public void setCerturl(String certurl) {
+        this.certurl = certurl == null ? null : certurl.trim();
     }
 
-    public Integer getBuddyId() {
-        return buddyId;
+    public Integer getReally() {
+        return really;
     }
 
-    public void setBuddyId(Integer buddyId) {
-        this.buddyId = buddyId;
+    public void setReally(Integer really) {
+        this.really = really;
+    }
+
+    public Integer getAttestType() {
+        return attestType;
+    }
+
+    public void setAttestType(Integer attestType) {
+        this.attestType = attestType;
     }
 
     public String getRemark() {
